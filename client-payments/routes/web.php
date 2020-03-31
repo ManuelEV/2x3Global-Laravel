@@ -1,5 +1,7 @@
 <?php
 
+use App\Jobs\DollarToCLP;
+use App\Jobs\SendMail;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +25,12 @@ Route::post('/api/clients', 'ClientController@store');
 
 Route::get('/api/payments', 'PaymentController@list');
 Route::post('/api/payments', 'PaymentController@store');
+
+//To get the current price of dollar in CLP and send a random email with Mailtrap
+Route::post('/api/payments', function(){
+    $job = new DollarToCLP();
+    dispatch($job);
+
+    $send_mail = new SendMail();
+    dispatch($send_mail);
+});

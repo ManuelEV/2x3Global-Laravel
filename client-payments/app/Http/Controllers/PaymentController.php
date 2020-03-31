@@ -18,14 +18,6 @@ class PaymentController extends Controller
         $payment->user_id = $request->user_id;
         $payment->clp_usd = $request->clp_usd;
 
-
-        /*
-        $now = new \DateTime();
-        $now->format('Y-m-d');
-        $payment->join_date = $now;
-        */
-
-
         $payment->save();
 
     }
