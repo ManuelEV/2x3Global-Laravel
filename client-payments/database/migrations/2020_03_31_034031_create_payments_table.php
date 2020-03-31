@@ -20,6 +20,7 @@ class CreatePaymentsTable extends Migration
             $table->string('status');
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('clients');
+            $table->integer('clp_usd')->nullable();
             $table->timestamps();
         });
     }

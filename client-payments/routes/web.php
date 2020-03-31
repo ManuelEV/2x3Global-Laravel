@@ -18,4 +18,8 @@ Route::get('/', function () {
 });
 
 Route::get('/api/clients', 'ClientController@list');
-Route::post('/api/client', 'ClientController@store')->name('client.store');
+Route::post('/api/clients', 'ClientController@store');
+
+
+Route::get('/api/payments', 'PaymentController@list');
+Route::post('/api/payments', 'PaymentController@store');
